@@ -1,6 +1,6 @@
 module.exports = function(application) {
 	application.get('/formulario_inclusao_noticia', function(req,res) {
-		res.render("admin/form_add_noticia", {validacao : false});
+		res.render("admin/form_add_noticia", {validacao : {}, noticia: {}});
 	});
 
 	application.post('/noticias/salvar', function(req,res) {
@@ -17,7 +17,7 @@ module.exports = function(application) {
 		req.getValidationResult().then(function(result) {
 			if (result.array() != '') {
 	    		var errors = result.array();
-	    		res.render("admin/form_add_noticia", {validacao : errors});
+	    		res.render("admin/form_add_noticia", {validacao : errors, noticia : noticia});
     		} else {
     			var connection = application.config.dbConnection();
 				var noticiasModel = new application.app.models.NoticiasDAO(connection);
