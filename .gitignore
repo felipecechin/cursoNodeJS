@@ -1,1 +1,3 @@
-portal_noticias/node_modules/
+node_modules
+.idea
+instagram_clone/api/uploads/*
