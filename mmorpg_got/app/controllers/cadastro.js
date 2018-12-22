@@ -26,5 +26,5 @@ module.exports.cadastrar = function(application, req, res) {
     JogoDAO.gerarParametros(dadosForm.usuario);
     //geração dos parametros
 
-    res.send("podemos");
+    res.redirect("/");
 }
